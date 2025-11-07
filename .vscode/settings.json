@@ -1,15 +1,49 @@
 {
-  "python.defaultInterpreterPath": "uv",
+  // ────────────────────────────────
+  // Python & uv
+  // ────────────────────────────────
+  // Pfad zu deinem Python-Interpreter aus uv
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  // Aktiviere Environment automatisch im Terminal
   "python.terminal.activateEnvironment": true,
+  // Unter Windows: "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+  // ────────────────────────────────
+  // Ruff als Formatter + Linter
+  // ────────────────────────────────
+  // Formatierung beim Speichern
   "editor.formatOnSave": true,
+  // Code-Aktionen beim Speichern (neues VS Code Schema → Strings!)
   "editor.codeActionsOnSave": {
-    "source.organizeImports.ruff": true,
-    "source.fixAll.ruff": true
+    "source.organizeImports.ruff": "explicit",
+    "source.fixAll.ruff": "explicit"
   },
+  // Ruff ist Standardformatter für Python
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff"
   },
+  // Ruff verwendet Environment aus uv (.venv)
   "ruff.importStrategy": "fromEnvironment",
-  "ruff.lint.args": ["--fix", "--unsafe-fixes"]
+  // ────────────────────────────────
+  // Mypy (optional)
+  // ────────────────────────────────
+  // Wenn du Typprüfungen willst:
+  "mypy.enabled": true,
+  "mypy.runUsingActiveInterpreter": true,
+  "mypy.targets": [
+    "${workspaceFolder}"
+  ],
+  "mypy.args": [
+    "--ignore-missing-imports",
+    "--check-untyped-defs"
+  ],
+  // ────────────────────────────────
+  // Allgemeines
+  // ────────────────────────────────
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.eol": "\n",
+  "editor.tabSize": 4,
+  "editor.rulers": [
+    88
+  ]
 }
-
