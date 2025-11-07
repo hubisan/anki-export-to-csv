@@ -1,0 +1,15 @@
+{
+  "python.defaultInterpreterPath": "uv",
+  "python.terminal.activateEnvironment": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.ruff": true,
+    "source.fixAll.ruff": true
+  },
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "ruff.importStrategy": "fromEnvironment",
+  "ruff.lint.args": ["--fix", "--unsafe-fixes"]
+}
+
